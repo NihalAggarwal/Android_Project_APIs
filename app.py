@@ -1,6 +1,7 @@
 from flask import Flask
 
 app = Flask(__name__)
+model = pickle.load(open('model2.pkl', 'rb'))
 
 @app.route('/')
 def hello_world():
