@@ -39,5 +39,21 @@ def predict():
     else:
         return jsonify({'Loan': "Failed"})
 
+@app.route('/calculate/premium', methods=['GET','POST'])
+def calculate_premium():
+    age = request.form.get('age')
+    sex = request.form.get('sex')
+    bmi = request.form.get('bmi')
+    children = request.form.get('children')
+    smoker = request.form.get('smoker')
+    region = request.form.get('region')
+
+    # return jsonify(({'Premium': result}))
+    input_query = np.array([[age, sex, bmi, children, smoker, region]])
+    var = model2.predict(input_query)[0]
+    var = str(var)
+
+    return jsonify(({'Premium': var}))
+
 if __name__ == '__main__':
     app.run(debug=False,host='0.0.0.0')
