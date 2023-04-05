@@ -11,3 +11,4 @@ waitress
 pandas
 numpy
 scikit-learn
+xgboost
