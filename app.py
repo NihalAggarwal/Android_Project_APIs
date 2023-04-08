@@ -10,7 +10,7 @@ model2 = pickle.load(open('model.pkl','rb'))
 def hello_world():
     return 'Hello World!'
 
-@app.route('/predict_loan',methods=['POST'])
+@app.route('/predict_loan',methods=['GET','POST'])
 def predict():
     Gender = request.form.get('Gender')
     Married = request.form.get('Married')
