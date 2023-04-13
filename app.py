@@ -40,7 +40,7 @@ def predict():
     else:
         return jsonify({'Loan': "Failed"})
 
-@app.route('/calculate/premium', methods=['GET','POST'])
+@app.route('/calculate/premium', methods=['POST'])
 def calculate_premium():
     age = request.form.get('age')
     sex = request.form.get('sex')
